@@ -1,20 +1,77 @@
-<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="JavaScript">
 <html>
-<head>
-<meta charset="UTF-8">
-	<title>***Send mail***</title>
-</head>
-<body>
-
-<td align="center"><h1>Проба отправки почты</h1>
-<form onsubmit="SendMail(); return false">
-<p><input type="submit" value="Отправить"></p>
-</form>
-
-<script type="text/javascript">
-	
-function sendMail() { $.ajax({ type: 'POST', url: 'https://api.mailgun.net/v3/sandbox467f68a4866443dabac9e083bc64e7d5.mailgun.org', data: { 'key': 'a5ff6a28fa3f5c316b8f9dd6ad86e215-f135b0f1-09c53098', 'message': { 'from_email': 'zakaz.kotla@mail.ru', 'to': [ { 'email': 'zakaz.kotla@mail.ru', 'name': 'RECIPIENT NAME (OPTIONAL)', 'type': 'to' } ], 'autotext': 'true', 'subject': 'YOUR SUBJECT HERE!', 'html': 'YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!' } } }).done(function(response) { console.log(response); // if you're into that sorta thing }); }
+  <head> </head>
+  <body>
+function check(form)
+{
+ if((form.name.value=="")||(form.theme.value=="")||(form.message.value=="")||(form.e_mail.value==""))
+ {
+ alert("Вы заполнили не все поля!");
+ return false;
+ }
+ else
+ return true;
+}
 </script>
-
-</body>
+<script language="javascript">
+function checkEmail(inputvalue){	
+    var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+    if(pattern.test(inputvalue))
+	{   
+	return true;  
+    }
+	
+	else
+	{   
+	alert("Вы неверно заполнили поле E-mail!");
+    return false;
+    }
+}
+</script>
+<form name="contacts" method="POST" action="send.php"  onsubmit="return check(contacts)">
+<center>
+<table class="name_fields">
+	<tr>
+		<td><div align="left">Ваше имя</div></td>
+		<td><div align="left">
+		  <input type="text" name="name" size="40" onfocus="this.style.background='#e0f7bd'" onblur="this.style.background='#ffffff'">
+		  </div></td>
+	</tr>
+	<tr>
+		<td><div align="left">Тема</div></td>
+		<td><div align="left">
+		  <input type="text" name="theme" size="40" onfocus="this.style.background='#e0f7bd'" onblur="this.style.background='#ffffff'">
+		  </div></td>
+	</tr>
+	<tr>
+		<td><div align="left">Сообщение</div></td>
+		<td><div align="left">
+		  <textarea rows="10" name="message" cols="40" onfocus="this.style.background='#e0f7bd'" onblur="this.style.background='#ffffff'"></textarea>
+		  </div></td>
+	</tr>
+	<tr>
+		<td><div align="left">Ваш E-mail</div></td>
+		<td><div align="left">
+		  <input type="text" name="e_mail" size="40" onfocus="this.style.background='#e0f7bd'" onblur="this.style.background='#ffffff'">
+		  </div></td>
+	</tr>
+<td valign="top" colspan="2" align="center"><table border="0" width="80%">
+	<tr>
+		<td align="center">
+		<p><font color="#008000"></font></td>
+		<td align="center">
+</td>
+		<td align="center">
+	</tr>
+</table></td>
+	<tr>
+		<td colspan="2">
+		<p align="center"><input type=submit value="Отправить" onClick="return checkEmail(document.contacts.e_mail.value)">
+</td>
+	</tr>
+</table>
+</center>
+</form>
+  </body>
 </html>
