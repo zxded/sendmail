@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
 	
-function sendMail() { $.ajax({ type: 'POST', url: 'https://api.mailgun.net/v3/sandbox467f68a4866443dabac9e083bc64e7d5.mailgun.org/messages', data: { 'key': 'f135b0f1-09c53098', 'message': { 'from_email': 'zakaz.kotla@mail.ru', 'to': [ { 'email': 'zakaz.kotla@mail.ru', 'name': 'RECIPIENT NAME (OPTIONAL)', 'type': 'to' } ], 'autotext': 'true', 'subject': 'YOUR SUBJECT HERE!', 'html': 'YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!' } } }).done(function(response) { console.log(response); // if you're into that sorta thing }); }
+function sendMail() { $.ajax({ type: 'POST', url: 'https://api.mailgun.net/v3/sandbox467f68a4866443dabac9e083bc64e7d5.mailgun.org', data: { 'key': 'a5ff6a28fa3f5c316b8f9dd6ad86e215-f135b0f1-09c53098', 'message': { 'from_email': 'zakaz.kotla@mail.ru', 'to': [ { 'email': 'zakaz.kotla@mail.ru', 'name': 'RECIPIENT NAME (OPTIONAL)', 'type': 'to' } ], 'autotext': 'true', 'subject': 'YOUR SUBJECT HERE!', 'html': 'YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!' } } }).done(function(response) { console.log(response); // if you're into that sorta thing }); }
 </script>
 
 </body>
